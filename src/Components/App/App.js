@@ -10,7 +10,8 @@ class App extends React.Component {
 
   state = {
     items: [],
-    flag: true
+    flag: true,
+    value:''
   }
 
   constructor(props) {
@@ -62,7 +63,7 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <input type='text' value={this.state.value} />
+        <input type='text' value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })}/>
           <br/>
         <button onClick={this.changeListType.bind(this)}>Change List Type</button>
           <br/>
