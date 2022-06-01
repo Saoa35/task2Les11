@@ -27,6 +27,34 @@ class App extends React.Component {
   changeListType() {
     this.setState({
       flag: !this.state.flag
+    });
+  }
+
+  addNewItemToStart() {
+    const newItem = faker.internet.userName();
+
+    this.setState({
+      items: [
+        ...this.state.items,
+        {
+          item: newItem,
+          id: v4()
+        }
+      ]
+    })
+  }
+
+  addNewItem() {
+    const newItem = faker.internet.userName();
+
+    this.setState({
+      items: [
+        {
+          item: newItem,
+          id: v4()
+        },
+        ...this.state.items
+      ]
     })
   }
 
@@ -36,9 +64,9 @@ class App extends React.Component {
 
         <button onClick={this.changeListType.bind(this)}>Change List Type</button>
           <br/>
-        <button>Add to end</button>
+        <button onClick={this.addNewItem.bind(this)}>Add to start</button>
           <br/>
-        <button>Add to start</button>
+        <button onClick={this.addNewItemToStart.bind(this)}>Add to end</button>
           <br/>
        {this.state.flag ? <List1 items={this.state.items}/> : <List2 items={this.state.items}/>}
 
