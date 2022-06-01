@@ -62,6 +62,8 @@ class App extends React.Component {
     return (
       <div className="App">
 
+        <input type='text' value={this.state.value} />
+          <br/>
         <button onClick={this.changeListType.bind(this)}>Change List Type</button>
           <br/>
         <button onClick={this.addNewItem.bind(this)}>Add to start</button>
